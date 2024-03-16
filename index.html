@@ -30,9 +30,10 @@
     function placeLevels()
     {
         const levelsList = [ {index: 1, title: '', inspiration: ''} ]
+        const letterSpellOut = 'AWAKENING ONE MILLION'
 
         var c=1
-        while (c < 69)
+        while (c < letterSpellOut.length + 1)
         {
             const elemStyle = 'min-width: 150px; height: 40px; scroll-margin: 120px; cursor: pointer; border-radius: 20px; display: flex; justify-content: center; align-items: center;'
     
@@ -40,7 +41,7 @@
             elem.id = 'level' + c
             elem.className = 'level'
             elem.style = elemStyle
-            elem.innerHTML = '<h1 style="color: white; text-align: center; font-size: 30px; font-weight: 290;">'+c+'</h1>'
+            elem.innerHTML = '<h1 style="color: white; text-align: center; font-size: 30px; font-weight: 290;">'+letterSpellOut[c-1]+'</h1>'
             elem.setAttribute('onmouseover', 'scrollIn(level'+c+')')
             elem.setAttribute('onclick', 'loadLevel('+c+')')
     
