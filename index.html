@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+<body>
+    <video autoplay muted loop id="myVideo" style="position: absolute; top: 0px; left: 0px;">
+        <source src="/bgAnimation.mp4" type="video/mp4">
+    </video>
+
+    <div id="levelContainer" style="position: absolute; top: 650px; left: 650px;; height: 250px; width: 950px; display: flex; gap: 20px; overflow-x: scroll; overflow-y: hidden; flex-direction: row; flex: auto">
+
+        
+    </div>
+
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js.cookie.min.js"></script>
+<script>
+
+    function scrollIn(id)
+    {
+        console.log(id)
+        document.getElementById(id.id).scrollIntoView({ behavior: "smooth", block: "nearest", });
+    }   
+
+
+    function placeLevels()
+    {
+        const levelsList = [ {index: 1, title: '', inspiration: ''} ]
+
+        var c=1
+        while (c < 69)
+        {
+            const elemStyle = 'min-width: 150px; height: 40px; scroll-margin: 120px; cursor: pointer; border-radius: 20px; display: flex; justify-content: center; align-items: center;'
+    
+            const elem = document.createElement('div')
+            elem.id = 'level' + c
+            elem.className = 'level'
+            elem.style = elemStyle
+            elem.innerHTML = '<h1 style="color: white; text-align: center; font-size: 30px; font-weight: 290;">'+c+'</h1>'
+            elem.setAttribute('onmouseover', 'scrollIn(level'+c+')')
+            elem.setAttribute('onclick', 'loadLevel('+c+')')
+    
+            document.getElementById('levelContainer').appendChild(elem)
+            c++
+        }
+
+
+    }
+    placeLevels()
+
+    function loadLevel(level)
+    {
+        console.log('Loading ' + level)
+
+        Cookies.set('level', level)
+
+        location.href = '/inspiration.html'
+    }
+
+
+</script>
+</html>
+
+
+<style>
+    @font-face{
+        font-family: Jua;
+        src: url(Jua-Regular.ttf);
+    }
+    body{
+        overflow: hidden;
+        font-family: Jua
+    }
+    .level{
+        background-color: #B454FF;
+    }
+    .level:hover{
+        cursor: pointer;
+        background-color: #A533FF;
+    }
+    *::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        *::-webkit-scrollbar-track {
+            background: #24202b13;
+            border-radius: 20px;
+        }
+
+        *::-webkit-scrollbar-thumb {
+            background-color: #7d398a27; /* #3a4050 */ 
+            border-radius: 20px;
+            border: transparent;
+        }
+</style>

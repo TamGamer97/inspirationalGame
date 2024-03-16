@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inspiration</title>
+</head>
+<body>
+</div>
+    <div id="bg" style="width: 100%; background-color: #420d1cf1; height: 100%; position: absolute; top: 0px; left: 0px;">
+
+        <div onclick="location.href ='/'" class="backBtn" style="min-width: 150px; height: 40px; cursor: pointer; border-radius: 20px; position: absolute; top: 20px; left: 20px; z-index: 10; display: flex; justify-content: center; align-items: center;">
+            <h1 style="color: white; font-size: 20px; text-align: center;">Back</h1>
+        </div>
+
+        <div style="display: flex; justify-content: center; margin-top: 100px;">
+            <img src="/InspirationTitle.png" style="z-index: 20; width: 550px;">
+                <h1 id="title" style="color: white; font-size: 50px; text-align: center; position: absolute; z-index: 50; cursor: pointer; font-weight: 600;"></h1>    
+            </img>
+        
+            <img src="/InspirationText.png" style="z-index: 20; width: 1150px; position: absolute; top: 350px;" >
+                <h1 id="description" style="color: white; font-size: 30px; text-align: center; position: absolute; z-index: 50; margin-top: 50px; cursor: pointer; position: absolute; top: 350px; width: 950px; height: 240px; font-weight: 500;"></h1>    
+            </img>
+        
+        </div>
+
+    </div>
+    <div id="bgBirds" style="width: 100%;; height: 100%; position: absolute; top: 0px; left: 0px; opacity: 0.2; background-color: black; z-index: 1;">
+
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.birds.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js.cookie.min.js"></script>
+
+<script>
+    VANTA.BIRDS({
+    el: "#bgBirds",
+    mouseControls: true,
+  touchControls: true,
+  gyroControls: false,
+  minHeight: 200.00,
+  minWidth: 200.00,
+  scale: 1.00,
+  scaleMobile: 1.00,
+  backgroundColor: 0x3a73b9,
+  color1: 0xff00d1,
+  color2: 0xe000ff,
+  colorMode: "variance",
+  speedLimit: 2.00,
+  separation: 41.00,
+  alignment: 25.00,
+  cohesion: 17.00,
+  quantity: 4.00,
+  backgroundAlpha: 0.00
+    })
+
+
+
+
+    var bgColors = ['#420d1cf1', '#281541', '#0d0c28', '#000817', '#040c1e', '#2b459e', '#223d91']
+    const transitionTime = 2
+    var bgColorIndx = 0
+    
+
+    
+    function changingBg()
+    {
+        document.getElementById('bg').style.transition = transitionTime + 's'
+        setTimeout(() => {
+            document.getElementById('bg').style.backgroundColor = bgColors[bgColorIndx]
+            bgColorIndx += 1
+            console.log('Changed bg ' + bgColorIndx)
+            changingBg()
+            if(bgColorIndx == bgColors.length - 1)
+            {
+                bgColorIndx = 0
+                console.log('reset color cycle')
+            }
+        }, transitionTime * 1000);
+    }
+    document.getElementById('bg').style.backgroundColor = bgColorIndx[0]
+    changingBg()
+
+
+    function loadInfo()
+    {
+        const principles =[
+    [
+        "Accountability",
+        "Acceptance of responsibility or liability; willingness to answer for or own; obligation to be responsible for one’s activities and the results."
+    ],
+    [
+        "Acknowledgment",
+        "Recognition or acceptance of the truth, validity or existence of something; expression of appreciation or gratitude."
+    ],
+    [
+        "Alignment",
+        "Congruency of what one thinks and feels with the action being taken; achieved when thought, word and action are harmoniously integrated"
+    ],
+    [
+        "Awareness",
+        "To recognize and acknowledge the existence of something; knowledge or perception of a situation or fact"
+    ],
+    [
+        "Authenticity",
+        "Real or genuine; true or accurate; made to resemble an original; of undisputed origin or authorship"
+    ],
+    [
+        "Balance",
+        "Even distribution of weight enabling someone or something to remain upright and steady; equitable distribution of time, energy and resources applied to duties and responsibilities"
+    ],
+    [
+        "Belief ",
+        "Thought fueled by emotion; repetitive pattern of thought that become habitual;something held to be true; an opinion or conviction; mental act, condition, or habit of placing trust or confidence in someone or something"
+    ],
+    [
+        "Boundaries",
+        "Line, space, request or requirement that marks the limits of space or behavior; border; dividing line; partition or frontier; Choice"
+    ],
+    [
+        'Choice',
+        "Opportunity or power to select from two or more possibilities; determination of a preference; power, right, or liberty to select what is desired"
+    ],
+    [
+        "Clarity",
+        "Sense of knowing or recognizing the truth within one’s self; clearness as related to perception or understanding; freedom from ambiguity; state or quality of being clear or transparent to the eye and understandable and recognizable within the mind"
+    ],
+    [
+        "Commitment",
+        " State or quality of being dedicated to a cause or activity; Total and complete engagement of faculties and being to a specific cause or course of action; Responsibility, obligation, duty that creates liability and governs choices and behaviors"
+    ],
+    [
+        "Compassion",
+        " to see yourself in the position of another, to feel what they feel and to offer tender support, empathy and understanding for what the individual may be experiencing, without seeing them as weak; Deep awareness of the suffering coupled with the wish, desire or action to relieve it; to suffer together"
+    ],
+    [
+        "Completion",
+        "Action or process of finishing something; to bring to an end, conclusion or resolution; Having all necessary or normal parts, components, or steps; fulfillment of duties, responsibilities or expectations."
+    ],
+    [
+        "Consciousness",
+        "Intangible sum total of all things held in mind; pure essence within the individual being; the foundation of an individual’s internal landscape (what one thinks, feels, and believes.)"
+    ],
+    [
+        "Consideration",
+        "Careful thought; meditation; deliberation; kindness and thoughtful regard for others, or an act of thoughtfulness."
+    ],
+    [
+        "Courage",
+        "Willingness and ability to do something that is frightening; strength in the presence of pain, grief, difficulty or danger; doing what is required or necessary before force is applied"
+    ],
+    [
+        "Determination",
+        "Quality of mind that supports a process of establishing something exactly as desired; coming to a decision or of fixing or settling a purpose that governs choices and behaviors; unrelenting commitment"
+    ],
+    [
+        "Discipline",
+        "Internal and external experience and activity built upon the steadfast adherence to an intention or desired outcome; function of the mental and emotional commitment to a desired outcome; ability to make choices that align the total being with the intention to experience the outcome. "
+    ],
+    [
+        "Divine Guidance",
+        "Openness to the influence of a divinity on the minds of human beings;doctrine or process for determining the will of God for your life through contemplation or meditation; inspiration from a divine source"
+    ],
+    [
+        "Enthusiasm",
+        "Strong excitement; Inspired by or about something: strong feeling or experience of active interest; rapturous or passionate intensity of feeling on behalf of a person or cause; passionate eagerness in any pursuit of active interest"
+    ],
+    [
+        "Faith",
+        "Complete trust or confidence in someone or something that governs choices and behaviors; strong belief that results from devotion to someone or something; confidence or trust placed in something or someone; belief in the existence of God; "
+    ],
+    [
+        "Fearlessness",
+        " Absence of feeling of distress, apprehension, or alarm caused by impending danger or pain; strong willed; brave; bold; without fear"
+    ],
+    [
+        "Flexibility",
+        "Willingness or ability to bend without breaking; Openness to take in that which is unfamiliar; ability to be easily modified; willingness to change or compromise; capable of bending repeatedly without injury or damage"
+    ],
+    [
+        "Focus",
+        " Sustained mental, emotional and physical energy toward the realization of a desired outcome; process of self-support and commitment demonstrated by mental and emotional steadfastness "
+    ],
+    [
+        "Forgiveness",
+        "Ultimate act of love; choice to “give away,” resolve, neutralize emotional hurt or pain attached to an experience, incident, or person; spiritual practice."
+    ],
+    [
+        "Freedom",
+        "Internal state of being demonstrated as lack of restriction or limitation in physical world reality; power or right to act, speak, or think without hindrance or restraint; exempt from external control"
+    ],
+    [
+        "Fulfillment",
+        "Satisfaction or happiness as a result of fully developing abilities or character; to succeed in doing or providing; to bring into actuality; successful achievement or accomplishment"
+    ],
+    [
+        "Gentleness",
+        " True humility that does not consider itself too good or too exalted for humbled or corrective tasks; considerate or kind disposition; not severe rough or violent; mild"
+    ],
+    [
+        "Grace",
+        " Gift or blessing; Unmerited or unearned favor that protects and advances one life or position; unrequested or unsolicited protection from harm; unexplainable elegance or refinement of movement."
+    ],
+    [
+        "Gratitude",
+        "Readiness to show appreciation for and to return kindness; recognize of a source of goodness outside of ourselves; thankfulness"
+    ],
+    [
+        "Healing",
+        "Return to a state of wholeness; Restoration to good form and/or purpose; Process of becoming sound, firm and able; acts of regaining health and wholeness of mind, body or spirit."
+    ],
+    [
+        "Honesty",
+        "Not hiding the truth about something or someone; good and truthful character that can be trusted; sincerity, or frankness; freedom from deceit or fraud; "
+    ],
+    [
+        "Honor",
+        "Honesty, fairness, or integrity in one’s beliefs and actions; high respect and esteem; fulfillment of responsibilities, commitments and obligations; "
+    ],
+    [
+        "Hope",
+        "Optimistic attitude; state of positive expectation that may transcend physical reality/evidence; expectation and desire for a certain thing to happen"
+    ],
+    [
+        "Humility",
+        "Acceptance of one’s defects, shortcomings and/or faults; Modest opinion or estimate of one’s own importance, rank, etc.; having a clear perspective for one’s place in context of the whole; "
+    ],
+    [
+        "Inner Authority",
+        "Ability to handle one’s inner and outer affairs clearly, accurately, and decisively without influence from external sources.; to make choices and decisions that are beneficial to the totality of the self/Self; willingness to hear and follow inner guidance."
+    ],
+    [
+        "Inner Strength",
+        "Integrity of character; resoluteness of will; mental resistance to doubt or discouragement; mental and emotional capacity that support external action"
+    ],
+    [
+        "Innocence",
+        " Freedom from guilt or fault; state of purity of heart and mind; natural or organic lack of knowledge or understanding; not deserving to be harmed"
+    ],
+    [
+        "Integrity",
+        "Internal alignment of mental, emotional and physical nature; quality of being honest and having strong moral principles; presence of and adherence to personal values;"
+    ],
+    [
+        "Intimacy",
+        "To state or make known; desire to experience and express love, connection or closeness; state of openness and receptivity; close, familiar, and usually affectionate or loving personal relationship"
+    ],
+    [
+        "Joy",
+        "State of mind and heart that expresses pleasure and happiness; success in doing, finding or getting that, which is pleasurable or desired; to feel or express great delight"
+    ],
+    [
+        "Kindness",
+        "Demonstration of warmth, affection care and concern; character that is friendly, generous, and considerate; giving without expectation of reward or recognition"
+    ],
+    [
+        "Love",
+        " Universal principle of oneness and connection; the Source of life and divinity; intense feeling of deep affection and connection; "
+    ],
+    [
+        "Mercy",
+        "Kind or forgiving treatment when someone who could be treated harshly; help given to people in a bad or desperate situation; demonstration of leniency, clemency or compassion"
+    ],
+    [
+        "Observation",
+        " Act or instance of noticing or perceiving to gain information or skill; taking note of a fact or occurrence in order to measure, study or learn"
+    ],
+    [
+        "Obedience",
+        "Compliance with order, request, or law; submission to request, authority or instruction; willingness to do or follow what you are told or what you hear"
+    ],
+    [
+        "Openness",
+        "Unobstructed access; state of being available and accessible; willingness to receive; unrestricted access to knowledge and information"
+    ],
+    [
+        "Optimism",
+        "Hopefulness and confidence for a successful future outcome; feeling or belief that good things will develop or unfold to one’s benefit"
+    ],
+    [
+        "Order",
+        " Logical or comprehensible arrangement of separate elements; condition of methodical or prescribed arrangement that has beneficial purpose; "
+    ],
+    [
+        "Ownership",
+        "Pertaining to, or belonging to oneself or itself; claiming responsibility and accountability for what one thinks, feel, possesses; right to the possess;"
+    ],
+    [
+        "Patience",
+        "To accept or tolerate delay, trouble, or suffering without anger upset; Conscious or willing acceptance of provocation, annoyance, misfortune, or pain, without complaint or demonstration of loss of temper "
+    ],
+    [
+        "Peace",
+        " Freedom from disturbance; quiet and tranquility; agreement to end hostilities or aggression"
+    ],
+    [
+        "Perfect Healing",
+        "Having all the required or desirable elements, qualities, or characteristics; as good as possible; having no mistakes or flaws; completely correct or accurate"
+    ],
+    [
+        "Perseverance",
+        "Steadfastness in behavior or thought despite difficulty or delay; steady persistence in a course of action, a purpose, a state of mind in spite of difficulties, obstacles, or discouragement"
+    ],
+    [
+        "Power",
+        "Capacity or ability to direct or influence a course of events; ability to do or act; capability of doing or accomplishing something"
+    ],
+    [
+        "Presence",
+        "Nature of energy and essence brought to an experience; related to what is occurring now; quality of mental and emotional intentionality, focus and concentration "
+    ],
+    [
+        "Purpose",
+        "Reason for which something is done or created or for which something exists;clearly stated intention or objective; determination to do or achieve"
+    ],
+    [
+        "Relax",
+        "State of being free from tension of anxiety; freedom or relief from bodily or mental work, effort or application of energy; restoration of equilibrium following disturbance"
+    ],
+    [
+        "Responsibility",
+        "Capacity and ability to respond; state or fact of having a duty or of having control; able to be trusted to do what is right or to do what is expected"
+    ],
+    [
+        "Self-Love",
+        "Recognizing the self as divine and demonstrating self: respect, value, esteem and worth all lead to self-love. Self-love is reflected in how an individual interacts and behaves with themselves and with others. It is a state of being."
+    ],
+    [
+        "Self-Value",
+        " How I see and hold myself within myself. (See Yourself) The way in which an for the establishment of self-value. Every individual needs to know that who they are and what matters to them, matters in their environment."
+    ],
+    [
+        "Silence",
+        "Being fully present and aware of yourself and others in the midst of an experience; the active presence of loving and non-judgmental acceptance"
+    ],
+    [
+        "Support",
+        "A function of mental, emotional and physical presence that is aligned with action. What you offer yourself and others from a consciousness of love and empathy"
+    ],
+    [
+        "Transformation",
+        "Taking the action required to create the desired results; process of taking new or re-newed action that is in alignment with mental and emotional framework"
+    ],
+    [
+        "Trust",
+        "An outgrowth of the quality of communication and interaction; establishment and adherence to boundaries; the integrity of the intentions. Belief in and, reliance on your connection to the Divine/God "
+    ],
+    [
+        "Truth",
+        "Refers to the immutable (unchanging) laws and principles of the universe that underlie the life experiences of each individual. Truth is immutable. It never changes. An aspect of divine Mind, that resides at the core of all living elements "
+    ],
+    [
+        "Vision",
+        " Internal mental picture that produces a passion and compassion within the being that manifests in the physical world reality "
+    ],
+    [
+        "Wholeness",
+        "Full, complete, missing nothing essential to survival or evolution; integration of mind, heart, body and spirit to support health of the organism or structure"
+    ]
+]
+
+
+        const currentLevel = Cookies.get('level')
+
+        document.getElementById('title').innerHTML = principles[currentLevel-1][0]
+        document.getElementById('description').innerHTML = principles[currentLevel-1][1]
+    }
+
+    loadInfo()
+
+    // var myStr = 'Accountability:;:Acceptance of responsibility or liability; willingness to answer for or own; obligation to be responsible for one’s activities and the results.---Acknowledgment:;:Recognition or acceptance of the truth, validity or existence of something; expression of appreciation or gratitude.---Alignment:;:Congruency of what one thinks and feels with the action being taken; achieved when thought, word and action are harmoniously integrated---Awareness:;:To recognize and acknowledge the existence of something; knowledge or perception of a situation or fact---Authenticity:;:Real or genuine; true or accurate; made to resemble an original; of undisputed origin or authorship---Balance:;:Even distribution of weight enabling someone or something to remain upright and steady; equitable distribution of time, energy and resources applied to duties and responsibilities---Belief :;:Thought fueled by emotion; repetitive pattern of thought that become habitual;something held to be true; an opinion or conviction; mental act, condition, or habit of placing trust or confidence in someone or something---Boundaries:;:Line, space, request or requirement that marks the limits of space or behavior; border; dividing line; partition or frontier; Choice:;:Opportunity or power to select from two or more possibilities; determination of a preference; power, right, or liberty to select what is desired---Clarity:;:Sense of knowing or recognizing the truth within one’s self; clearness as related to perception or understanding; freedom from ambiguity; state or quality of being clear or transparent to the eye and understandable and recognizable within the mind---Commitment:;: State or quality of being dedicated to a cause or activity; Total and complete engagement of faculties and being to a specific cause or course of action; Responsibility, obligation, duty that creates liability and governs choices and behaviors---Compassion:;: to see yourself in the position of another, to feel what they feel and to offer tender support, empathy and understanding for what the individual may be experiencing, without seeing them as weak; Deep awareness of the suffering coupled with the wish, desire or action to relieve it; to suffer together---Completion:;:Action or process of finishing something; to bring to an end, conclusion or resolution; Having all necessary or normal parts, components, or steps; fulfillment of duties, responsibilities or expectations.---Consciousness:;:Intangible sum total of all things held in mind; pure essence within the individual being; the foundation of an individual’s internal landscape (what one thinks, feels, and believes.)---Consideration:;:Careful thought; meditation; deliberation; kindness and thoughtful regard for others, or an act of thoughtfulness.---Courage:;:Willingness and ability to do something that is frightening; strength in the presence of pain, grief, difficulty or danger; doing what is required or necessary before force is applied---Determination:;:Quality of mind that supports a process of establishing something exactly as desired; coming to a decision or of fixing or settling a purpose that governs choices and behaviors; unrelenting commitment---Discipline:;:Internal and external experience and activity built upon the steadfast adherence to an intention or desired outcome; function of the mental and emotional commitment to a desired outcome; ability to make choices that align the total being with the intention to experience the outcome. ---Divine Guidance:;:Openness to the influence of a divinity on the minds of human beings;doctrine or process for determining the will of God for your life through contemplation or meditation; inspiration from a divine source---Enthusiasm:;:Strong excitement; Inspired by or about something: strong feeling or experience of active interest; rapturous or passionate intensity of feeling on behalf of a person or cause; passionate eagerness in any pursuit of active interest---Faith:;:Complete trust or confidence in someone or something that governs choices and behaviors; strong belief that results from devotion to someone or something; confidence or trust placed in something or someone; belief in the existence of God; ---Fearlessness:;: Absence of feeling of distress, apprehension, or alarm caused by impending danger or pain; strong willed; brave; bold; without fear---Flexibility:;:Willingness or ability to bend without breaking; Openness to take in that which is unfamiliar; ability to be easily modified; willingness to change or compromise; capable of bending repeatedly without injury or damage---Focus:;: Sustained mental, emotional and physical energy toward the realization of a desired outcome; process of self-support and commitment demonstrated by mental and emotional steadfastness ---Forgiveness:;:Ultimate act of love; choice to “give away,” resolve, neutralize emotional hurt or pain attached to an experience, incident, or person; spiritual practice.---Freedom:;:Internal state of being demonstrated as lack of restriction or limitation in physical world reality; power or right to act, speak, or think without hindrance or restraint; exempt from external control---Fulfillment:;:Satisfaction or happiness as a result of fully developing abilities or character; to succeed in doing or providing; to bring into actuality; successful achievement or accomplishment---Gentleness:;: True humility that does not consider itself too good or too exalted for humbled or corrective tasks; considerate or kind disposition; not severe rough or violent; mild---Grace:;: Gift or blessing; Unmerited or unearned favor that protects and advances one life or position; unrequested or unsolicited protection from harm; unexplainable elegance or refinement of movement.---Gratitude:;:Readiness to show appreciation for and to return kindness; recognize of a source of goodness outside of ourselves; thankfulness---Healing:;:Return to a state of wholeness; Restoration to good form and/or purpose; Process of becoming sound, firm and able; acts of regaining health and wholeness of mind, body or spirit.---Honesty:;:Not hiding the truth about something or someone; good and truthful character that can be trusted; sincerity, or frankness; freedom from deceit or fraud; ---Honor:;:Honesty, fairness, or integrity in one’s beliefs and actions; high respect and esteem; fulfillment of responsibilities, commitments and obligations; ---Hope:;:Optimistic attitude; state of positive expectation that may transcend physical reality/evidence; expectation and desire for a certain thing to happen---Humility:;:Acceptance of one’s defects, shortcomings and/or faults; Modest opinion or estimate of one’s own importance, rank, etc.; having a clear perspective for one’s place in context of the whole; ---Inner Authority:;:Ability to handle one’s inner and outer affairs clearly, accurately, and decisively without influence from external sources.; to make choices and decisions that are beneficial to the totality of the self/Self; willingness to hear and follow inner guidance.---Inner Strength:;:Integrity of character; resoluteness of will; mental resistance to doubt or discouragement; mental and emotional capacity that support external action---Innocence:;: Freedom from guilt or fault; state of purity of heart and mind; natural or organic lack of knowledge or understanding; not deserving to be harmed---Integrity:;:Internal alignment of mental, emotional and physical nature; quality of being honest and having strong moral principles; presence of and adherence to personal values;---Intimacy:;:To state or make known; desire to experience and express love, connection or closeness; state of openness and receptivity; close, familiar, and usually affectionate or loving personal relationship---Joy:;:State of mind and heart that expresses pleasure and happiness; success in doing, finding or getting that, which is pleasurable or desired; to feel or express great delight---Kindness:;:Demonstration of warmth, affection care and concern; character that is friendly, generous, and considerate; giving without expectation of reward or recognition---Love:;: Universal principle of oneness and connection; the Source of life and divinity; intense feeling of deep affection and connection; ---Mercy:;:Kind or forgiving treatment when someone who could be treated harshly; help given to people in a bad or desperate situation; demonstration of leniency, clemency or compassion---Observation:;: Act or instance of noticing or perceiving to gain information or skill; taking note of a fact or occurrence in order to measure, study or learn---Obedience:;:Compliance with order, request, or law; submission to request, authority or instruction; willingness to do or follow what you are told or what you hear---Openness:;:Unobstructed access; state of being available and accessible; willingness to receive; unrestricted access to knowledge and information---Optimism:;:Hopefulness and confidence for a successful future outcome; feeling or belief that good things will develop or unfold to one’s benefit---Order:;: Logical or comprehensible arrangement of separate elements; condition of methodical or prescribed arrangement that has beneficial purpose; ---Ownership:;:Pertaining to, or belonging to oneself or itself; claiming responsibility and accountability for what one thinks, feel, possesses; right to the possess;---Patience:;:To accept or tolerate delay, trouble, or suffering without anger upset; Conscious or willing acceptance of provocation, annoyance, misfortune, or pain, without complaint or demonstration of loss of temper ---Peace:;: Freedom from disturbance; quiet and tranquility; agreement to end hostilities or aggression---Perfect Healing:;:Having all the required or desirable elements, qualities, or characteristics; as good as possible; having no mistakes or flaws; completely correct or accurate---Perseverance:;:Steadfastness in behavior or thought despite difficulty or delay; steady persistence in a course of action, a purpose, a state of mind in spite of difficulties, obstacles, or discouragement---Power:;:Capacity or ability to direct or influence a course of events; ability to do or act; capability of doing or accomplishing something---Presence:;:Nature of energy and essence brought to an experience; related to what is occurring now; quality of mental and emotional intentionality, focus and concentration ---Purpose:;:Reason for which something is done or created or for which something exists;clearly stated intention or objective; determination to do or achieve---Relax:;:State of being free from tension of anxiety; freedom or relief from bodily or mental work, effort or application of energy; restoration of equilibrium following disturbance---Responsibility:;:Capacity and ability to respond; state or fact of having a duty or of having control; able to be trusted to do what is right or to do what is expected---Self-Love:;:Recognizing the self as divine and demonstrating self: respect, value, esteem and worth all lead to self-love. Self-love is reflected in how an individual interacts and behaves with themselves and with others. It is a state of being.---Self-Value:;: How I see and hold myself within myself. (See Yourself) The way in which an for the establishment of self-value. Every individual needs to know that who they are and what matters to them, matters in their environment.---Silence:;:Being fully present and aware of yourself and others in the midst of an experience; the active presence of loving and non-judgmental acceptance---Support:;:A function of mental, emotional and physical presence that is aligned with action. What you offer yourself and others from a consciousness of love and empathy---Transformation:;:Taking the action required to create the desired results; process of taking new or re-newed action that is in alignment with mental and emotional framework---Trust:;:An outgrowth of the quality of communication and interaction; establishment and adherence to boundaries; the integrity of the intentions. Belief in and, reliance on your connection to the Divine/God ---Truth:;:Refers to the immutable (unchanging) laws and principles of the universe that underlie the life experiences of each individual. Truth is immutable. It never changes. An aspect of divine Mind, that resides at the core of all living elements ---Vision:;: Internal mental picture that produces a passion and compassion within the being that manifests in the physical world reality ---Wholeness:;:Full, complete, missing nothing essential to survival or evolution; integration of mind, heart, body and spirit to support health of the organism or structure---'
+
+    // myStr = myStr.split(':;:')
+
+    // console.log(myStr)
+
+    // var myList = []
+
+    // var isFirst = true
+    // for (var a in myStr)
+    // {
+    //     const b = myStr[a]
+
+    //     console.log(b)
+
+    //     if(isFirst == true)
+    //     {
+    //         myList.push([b])
+    //     }else{
+    //         const prevdesc = b.split('---')[0] // goes with prevois title
+    //         const nextTitle = b.split('---')[1] // is next title
+            
+    //         myList[myList.length -1].push(prevdesc)
+    //         myList.push([nextTitle])
+
+    //     }
+        
+    //     isFirst = false
+    // }
+
+    // console.log(myList)
+
+
+
+
+
+</script>
+</html>
+
+
+<style>
+    @font-face{
+        font-family: Jua;
+        src: url(Jua-Regular.ttf);
+    }
+    body{
+        overflow: hidden;
+        font-family: Jua
+    }
+    .backBtn{
+        background-color: #B454FF;
+    }
+    .backBtn:hover{
+        cursor: pointer;
+        background-color: #A533FF;
+    }
+</style>
